@@ -2,10 +2,8 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 import time
 
-# Base URL of the webpage to scrape
 base_url = 'https://www.smart.md/laptopuri?'
 
-# Create an HTML session
 session = HTMLSession()
 
 offset = 0
