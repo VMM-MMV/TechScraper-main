@@ -28,7 +28,7 @@ while all_products_found:
             name_element = product_div.find('span', class_='catalog__pill__text__title')
             product_name = name_element.text.strip() if name_element else 'Name not found'
 
-            product_name = re.sub(r'\s*\((?!\d{4}\)).*?\)', '', product_name).replace("Laptop", "").strip()
+            product_name = re.sub(r'\s*\((?!\d{4}\)).*?\)', '', product_name).replace("Laptop", "").replace(")","").replace("(","").strip()
 
             # Extract the price
             price_element = product_div.find('div', class_='catalog__pill__controls__price')
