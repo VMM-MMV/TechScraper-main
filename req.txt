@@ -1,3 +1,0 @@
-pip install lxml[html_clean]
-pip install requests-html
-pip install --upgrade requests-html

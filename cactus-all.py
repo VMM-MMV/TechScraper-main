@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 base_url = 'https://www.cactus.md/ro/catalogue/electronice/kompyuternaya-tehnika/noutbuki/?sort_=ByView_Descending&page_=page_{}'
 
@@ -36,6 +37,7 @@ while all_products_found:
             print('---')
 
         page_number += 1
+        time.sleep(2)
     else:
         # No more products found, terminate the loop
         all_products_found = False
