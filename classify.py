@@ -21,10 +21,8 @@ new_prompt="""{
 }
 """
 
-def classify(item):
-
-
-
+def classify(name, price, additional_specs):
+    item = {"name": name, "price": price, 'additional_specs': additional_specs}
     ai = BLACKBOXAI(
         is_conversation=True,
         max_tokens=1000,
@@ -38,12 +36,11 @@ def classify(item):
         model=None # You "title": "Lenovo G50-70, Intel Pentium, 8GB, 500GB",can specify a model if needed
     )
 
-
-    r = ai.chat(new_prompt+str(item)).split("@$")[-1].lower()
-    print(r)
+    response = ai.chat(new_prompt+str(item)).split("@$")[-1].lower()
+    print(response)
         
     try:
-        result= json.loads(r.replace("$","").replace("```","").replace("json",""))
+        result= json.loads(response.replace("$","").replace("```","").replace("json",""))
 
         dic={k:v for k,v in result.items()}
         dic["name"]=item['name']
